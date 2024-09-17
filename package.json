@@ -1,0 +1,15 @@
+{
+  "name": "angular-micro-frontend",
+  "version": "1.0.0",
+  "description": "Angular micro-frontend example project.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Matthew Castle",
+  "license": "ISC",
+  "workspaces": [
+    "packages/shell",
+    "packages/nav"
+  ]
+}
