@@ -1,0 +1,5 @@
+{
+  "nav": "http://localhost:4201/remoteEntry.json",
+  "mfe-one": "http://localhost:4202/remoteEntry.json",
+  "mfe-two": "http://localhost:4203/remoteEntry.json"
+}
