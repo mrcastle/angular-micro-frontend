@@ -1,0 +1,52 @@
+services:
+  shell:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      args:
+        PROJECT: shell
+        CONFIGURATION: development
+    ports:
+      - "4200:80"
+    volumes:
+      - ./projects/shell:/app/projects/shell
+      - ./node_modules:/app/node_modules
+
+  nav:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      args:
+        PROJECT: nav
+        CONFIGURATION: development
+    ports:
+      - "4201:80"
+    volumes:
+      - ./projects/nav:/app/projects/nav
+      - ./node_modules:/app/node_modules
+
+  mfe-one:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      args:
+        PROJECT: mfe-one
+        CONFIGURATION: development
+    ports:
+      - "4202:80"
+    volumes:
+      - ./projects/mfe-one:/app/projects/mfe-one
+      - ./node_modules:/app/node_modules
+
+  mfe-two:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      args:
+        PROJECT: mfe-two
+        CONFIGURATION: development
+    ports:
+      - "4203:80"
+    volumes:
+      - ./projects/mfe-two:/app/projects/mfe-two
+      - ./node_modules:/app/node_modules
