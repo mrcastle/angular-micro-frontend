@@ -1,6 +1,6 @@
 import { NgFor } from '@angular/common';
-import { Component } from '@angular/core';
-import { MatTabsModule } from '@angular/material/tabs';
+import { Component, Input, TemplateRef } from '@angular/core';
+import { MatTabNavPanel, MatTabsModule } from '@angular/material/tabs';
 import { RouterModule } from '@angular/router';
 
 @Component({
@@ -16,4 +16,6 @@ export class NavMenuComponent {
     { label: 'Remote One', path: '/mfe-one' },
     { label: 'Remote Two', path: '/mfe-two' },
   ];
+
+  @Input() tabPanel!: MatTabNavPanel;
 }

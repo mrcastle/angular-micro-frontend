@@ -6,11 +6,8 @@
     routerLinkActive
     #rla="routerLinkActive"
     [active]="rla.isActive"
+    [routerLinkActiveOptions]="{ exact: true }"
   >
     {{ link.label }}
   </a>
 </nav>
-
-<mat-tab-nav-panel #tabPanel>
-  <ng-content></ng-content>
-</mat-tab-nav-panel>

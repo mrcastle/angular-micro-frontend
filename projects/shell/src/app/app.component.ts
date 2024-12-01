@@ -1,20 +1,29 @@
 import { loadRemoteModule } from '@angular-architects/native-federation';
-import { Component, OnInit, ViewChild, ViewContainerRef } from '@angular/core';
+import {
+  Component,
+  OnInit,
+  TemplateRef,
+  ViewChild,
+  ViewContainerRef,
+} from '@angular/core';
+import { MatTabNavPanel } from '@angular/material/tabs';
 import { RouterOutlet } from '@angular/router';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet],
+  imports: [RouterOutlet, MatTabNavPanel],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',
 })
 export class AppComponent implements OnInit {
-  @ViewChild('navContainer', { read: ViewContainerRef })
+  @ViewChild('navMenu', { read: ViewContainerRef })
   navContainer!: ViewContainerRef;
   title = 'shell';
 
-  async ngOnInit() {
+  @ViewChild('tabPanel') tabPanel!: MatTabNavPanel;
+
+  ngOnInit() {
     this.loadNavMenu();
   }
 
@@ -24,6 +33,9 @@ export class AppComponent implements OnInit {
       './NavMenuComponent'
     );
 
-    this.navContainer.createComponent(NavMenuComponent);
+    const navMenu = this.navContainer.createComponent(
+      NavMenuComponent
+    ) as typeof NavMenuComponent;
+    navMenu.instance.tabPanel = this.tabPanel;
   }
 }
